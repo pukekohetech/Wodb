@@ -1,106 +1,699 @@
 {
   "puzzles": [
     {
-      "category": "Materials",
+      "subject": "Technology",
+      "topic": "Materials",
       "items": ["Plywood", "MDF", "Pine", "Aluminium"],
       "answers": [
-        "Aluminium does not belong because it is the only metal.",
-        "Pine does not belong because it is the only natural solid timber.",
-        "MDF does not belong because it is made from wood fibres.",
-        "Plywood does not belong because it is made from layered veneers."
+        "Plywood - made from cross-laminated veneers.",
+        "MDF - made from fine wood fibres.",
+        "Pine - the only natural solid timber.",
+        "Aluminium - the only metal."
       ]
     },
     {
-      "category": "Workshop tools",
-      "items": ["Chisel", "Hammer", "Saw", "Sandpaper"],
+      "subject": "Technology",
+      "topic": "Timber products",
+      "items": ["Plywood", "Particleboard", "MDF", "Pine"],
       "answers": [
-        "Sandpaper does not belong because it is an abrasive rather than a cutting or striking tool.",
-        "Hammer does not belong because it does not cut material.",
-        "Saw does not belong because it removes material by teeth rather than impact or abrasion."
+        "Plywood - made from veneers.",
+        "Particleboard - made from larger wood particles.",
+        "MDF - made from fine fibres.",
+        "Pine - the only natural solid timber."
       ]
     },
     {
-      "category": "Joining",
-      "items": ["Dowel", "Mortise and tenon", "Biscuit", "Rivet"],
+      "subject": "Technology",
+      "topic": "Fasteners",
+      "items": ["Screw", "Bolt", "Nail", "Rivet"],
       "answers": [
-        "Rivet does not belong because it is a metal fastening method.",
-        "Mortise and tenon does not belong because it is a traditional formed joint rather than a loose inserted connector.",
-        "Biscuit does not belong because it usually relies on swelling compressed beech."
+        "Screw - usually removable by turning.",
+        "Bolt - usually used with a nut.",
+        "Nail - driven by impact.",
+        "Rivet - usually permanent once fixed."
       ]
     },
     {
-      "category": "Drawing terms",
-      "items": ["Plan", "Elevation", "Isometric", "Recipe"],
+      "subject": "Technology",
+      "topic": "Joining",
+      "items": ["Dowel", "Biscuit", "Mortise and tenon", "Screw"],
       "answers": [
-        "Recipe does not belong because it is not a drawing or drawing view.",
-        "Isometric does not belong because it is a pictorial view, while plan and elevation are orthographic views."
+        "Dowel - cylindrical inserted connector.",
+        "Biscuit - thin oval connector that swells with glue.",
+        "Mortise and tenon - shaped joint cut into the material itself.",
+        "Screw - metal mechanical fastener."
       ]
     },
     {
-      "category": "Manufacturing",
-      "items": ["Marking out", "Cutting", "Joining", "Photosynthesis"],
+      "subject": "Technology",
+      "topic": "Marking and measuring",
+      "items": ["Steel rule", "Tape measure", "Try square", "Marking gauge"],
       "answers": [
-        "Photosynthesis does not belong because it is not part of a manufacturing process.",
-        "Joining does not belong because it usually happens after shaping steps like marking out and cutting."
+        "Steel rule - rigid straight measuring tool.",
+        "Tape measure - flexible measuring tool.",
+        "Try square - mainly checks 90 degree angles.",
+        "Marking gauge - mainly marks parallel lines."
       ]
     },
     {
-      "category": "Fasteners",
-      "items": ["Screw", "Bolt", "Nail", "Glue"],
+      "subject": "Technology",
+      "topic": "Hand tools",
+      "items": ["Chisel", "Plane", "Saw", "Sandpaper"],
       "answers": [
-        "Glue does not belong because it is an adhesive rather than a mechanical fastener.",
-        "Bolt does not belong because it is usually used with a nut.",
-        "Nail does not belong because it has no thread."
+        "Chisel - controlled edge cutting, often with hand or mallet pressure.",
+        "Plane - removes thin shavings from a surface.",
+        "Saw - cuts with teeth.",
+        "Sandpaper - removes material by abrasion."
       ]
     },
     {
-      "category": "Safety",
-      "items": ["Safety glasses", "Ear muffs", "Apron", "Jandal"],
+      "subject": "Technology",
+      "topic": "Manufacturing processes",
+      "items": ["Casting", "Forging", "Machining", "Laminating"],
       "answers": [
-        "Jandal does not belong because it is not suitable workshop footwear.",
-        "Apron does not belong because it is not always required PPE in the same way eye and hearing protection can be."
+        "Casting - shapes by pouring molten material.",
+        "Forging - shapes by compressive force.",
+        "Machining - removes material with cutting tools.",
+        "Laminating - builds a product by bonding layers."
       ]
     },
     {
-      "category": "Metals",
-      "items": ["Steel", "Aluminium", "Copper", "Plywood"],
+      "subject": "Technology",
+      "topic": "Workshop safety",
+      "items": ["Safety glasses", "Ear muffs", "Dust mask", "Apron"],
       "answers": [
-        "Plywood does not belong because it is not a metal.",
-        "Aluminium does not belong because it is much lighter than the others.",
-        "Copper does not belong because it is commonly used for electrical conductivity."
+        "Safety glasses - protects eyes.",
+        "Ear muffs - protects hearing.",
+        "Dust mask - protects breathing.",
+        "Apron - protects body and clothing."
       ]
     },
     {
-      "category": "Measuring",
-      "items": ["Steel rule", "Tape measure", "Try square", "Hot glue gun"],
+      "subject": "Technology",
+      "topic": "Mechanisms",
+      "items": ["Gear", "Pulley", "Lever", "Spring"],
       "answers": [
-        "Hot glue gun does not belong because it is not a measuring or checking tool.",
-        "Try square does not belong because it is mainly for checking 90 degrees rather than measuring length."
+        "Gear - transfers motion through meshing teeth.",
+        "Pulley - uses a wheel with rope or belt.",
+        "Lever - does not rely on continuous rotation.",
+        "Spring - stores and releases energy."
       ]
     },
     {
-      "category": "Timber",
-      "items": ["Rimu", "Pine", "MDF", "Macrocarpa"],
+      "subject": "Technology",
+      "topic": "Drawing views",
+      "items": ["Plan", "Elevation", "Section", "Isometric"],
       "answers": [
-        "MDF does not belong because it is an engineered board, not solid timber.",
-        "Rimu does not belong because it is a native timber.",
-        "Pine does not belong because it is usually plantation-grown and softer than many other timbers."
+        "Plan - top orthographic view.",
+        "Elevation - side or front orthographic view.",
+        "Section - shows internal detail through a cut.",
+        "Isometric - pictorial 3D representation."
+      ]
+    },
+
+    {
+      "subject": "Mathematics",
+      "topic": "Shapes",
+      "items": ["Triangle", "Square", "Circle", "Rectangle"],
+      "answers": [
+        "Triangle - only shape with three sides.",
+        "Square - only one with four equal sides and four right angles.",
+        "Circle - only one with no straight sides.",
+        "Rectangle - only one with opposite sides equal but not all necessarily equal."
       ]
     },
     {
-      "category": "Processes",
-      "items": ["Casting", "Moulding", "Laminating", "Sleeping"],
+      "subject": "Mathematics",
+      "topic": "Quadrilaterals",
+      "items": ["Square", "Rectangle", "Rhombus", "Parallelogram"],
       "answers": [
-        "Sleeping does not belong because it is not a manufacturing process.",
-        "Laminating does not belong because it joins layers rather than forming liquid or softened material in a mould."
+        "Square - has equal sides and right angles.",
+        "Rectangle - has right angles but not all sides equal.",
+        "Rhombus - has equal sides but not necessarily right angles.",
+        "Parallelogram - opposite sides parallel without requiring equal sides all round or right angles."
       ]
     },
     {
-      "category": "Mechanisms",
-      "items": ["Gear", "Pulley", "Lever", "Wallpaper"],
+      "subject": "Mathematics",
+      "topic": "Number properties",
+      "items": ["2", "3", "4", "5"],
       "answers": [
-        "Wallpaper does not belong because it is not a mechanism.",
-        "Lever does not belong because it is a simple machine that does not rely on rotational transmission like gears and pulleys."
+        "2 - the only even prime.",
+        "3 - the only multiple of 3.",
+        "4 - the only square number.",
+        "5 - the only number ending in 5."
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "topic": "Representations of number",
+      "items": ["0.5", "1/2", "50%", "5/10"],
+      "answers": [
+        "0.5 - decimal form.",
+        "1/2 - simplest fraction form.",
+        "50% - percentage form.",
+        "5/10 - equivalent fraction but not simplified."
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "topic": "Graph features",
+      "items": ["x-axis", "y-axis", "origin", "scale"],
+      "answers": [
+        "x-axis - horizontal axis.",
+        "y-axis - vertical axis.",
+        "origin - intersection point of the axes.",
+        "scale - tells how values are spaced rather than being a line or point."
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "items": ["Mean", "Median", "Mode", "Range"],
+      "answers": [
+        "Mean - calculated average.",
+        "Median - middle value.",
+        "Mode - most common value.",
+        "Range - spread rather than central tendency."
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "topic": "Transformations",
+      "items": ["Reflection", "Rotation", "Translation", "Enlargement"],
+      "answers": [
+        "Reflection - flips a shape.",
+        "Rotation - turns a shape.",
+        "Translation - slides a shape.",
+        "Enlargement - changes size."
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "topic": "Measurement",
+      "items": ["Length", "Area", "Volume", "Perimeter"],
+      "answers": [
+        "Length - one-dimensional measure.",
+        "Area - two-dimensional measure.",
+        "Volume - three-dimensional measure.",
+        "Perimeter - total boundary distance rather than internal size."
+      ]
+    },
+
+    {
+      "subject": "Science",
+      "topic": "States of matter",
+      "items": ["Solid", "Liquid", "Gas", "Plasma"],
+      "answers": [
+        "Solid - fixed shape and volume.",
+        "Liquid - fixed volume but not shape.",
+        "Gas - no fixed shape or volume.",
+        "Plasma - ionised state of matter."
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Forces",
+      "items": ["Push", "Pull", "Friction", "Gravity"],
+      "answers": [
+        "Push - force away from something.",
+        "Pull - force toward something.",
+        "Friction - contact force resisting motion.",
+        "Gravity - non-contact force."
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Energy",
+      "items": ["Kinetic", "Thermal", "Chemical", "Potential"],
+      "answers": [
+        "Kinetic - energy of motion.",
+        "Thermal - heat-related energy.",
+        "Chemical - energy stored in substances.",
+        "Potential - stored energy due to position or state."
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Changes of state",
+      "items": ["Melting", "Freezing", "Evaporation", "Condensation"],
+      "answers": [
+        "Melting - solid to liquid.",
+        "Freezing - liquid to solid.",
+        "Evaporation - liquid to gas.",
+        "Condensation - gas to liquid."
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Lab equipment",
+      "items": ["Beaker", "Test tube", "Measuring cylinder", "Flask"],
+      "answers": [
+        "Beaker - wide container for mixing or holding.",
+        "Test tube - narrow container for small samples.",
+        "Measuring cylinder - designed for measuring volume accurately.",
+        "Flask - shaped for swirling, heating, or reducing spills."
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Scientific skills",
+      "items": ["Observe", "Measure", "Predict", "Infer"],
+      "answers": [
+        "Observe - gather information directly.",
+        "Measure - quantify information.",
+        "Predict - state what may happen next.",
+        "Infer - interpret what evidence suggests."
+      ]
+    },
+
+    {
+      "subject": "Biology",
+      "topic": "Living things",
+      "items": ["Tree", "Bacteria", "Fungus", "Animal"],
+      "answers": [
+        "Tree - plant.",
+        "Bacteria - single-celled prokaryote.",
+        "Fungus - separate kingdom from plants and animals.",
+        "Animal - multicellular consumer."
+      ]
+    },
+    {
+      "subject": "Biology",
+      "topic": "Plant parts",
+      "items": ["Root", "Stem", "Leaf", "Flower"],
+      "answers": [
+        "Root - mainly absorbs water and anchors the plant.",
+        "Stem - supports and transports materials.",
+        "Leaf - main site of photosynthesis.",
+        "Flower - reproductive structure."
+      ]
+    },
+    {
+      "subject": "Biology",
+      "topic": "Animal groups",
+      "items": ["Mammal", "Bird", "Reptile", "Fish"],
+      "answers": [
+        "Mammal - has hair and feeds milk to young.",
+        "Bird - has feathers.",
+        "Reptile - dry scales and ectothermic.",
+        "Fish - gills and aquatic life."
+      ]
+    },
+    {
+      "subject": "Biology",
+      "topic": "Food chain roles",
+      "items": ["Producer", "Herbivore", "Carnivore", "Decomposer"],
+      "answers": [
+        "Producer - makes its own food.",
+        "Herbivore - eats plants.",
+        "Carnivore - eats animals.",
+        "Decomposer - breaks down dead matter."
+      ]
+    },
+
+    {
+      "subject": "Chemistry",
+      "topic": "Particle ideas",
+      "items": ["Atom", "Molecule", "Compound", "Element"],
+      "answers": [
+        "Atom - smallest particle of an element.",
+        "Molecule - bonded group of atoms.",
+        "Compound - substance made of different elements chemically joined.",
+        "Element - pure substance of one type of atom."
+      ]
+    },
+    {
+      "subject": "Chemistry",
+      "topic": "Separation methods",
+      "items": ["Filtration", "Evaporation", "Chromatography", "Distillation"],
+      "answers": [
+        "Filtration - separates insoluble solids from liquids.",
+        "Evaporation - removes solvent.",
+        "Chromatography - separates by movement through a medium.",
+        "Distillation - separates by boiling point."
+      ]
+    },
+    {
+      "subject": "Chemistry",
+      "topic": "Acids and bases",
+      "items": ["Acid", "Base", "Indicator", "Neutral"],
+      "answers": [
+        "Acid - pH below 7.",
+        "Base - pH above 7.",
+        "Indicator - shows pH by colour change.",
+        "Neutral - pH around 7."
+      ]
+    },
+
+    {
+      "subject": "Physics",
+      "topic": "Motion",
+      "items": ["Speed", "Velocity", "Acceleration", "Distance"],
+      "answers": [
+        "Speed - rate of movement without direction.",
+        "Velocity - speed with direction.",
+        "Acceleration - rate of change of velocity.",
+        "Distance - amount travelled rather than rate of change."
+      ]
+    },
+    {
+      "subject": "Physics",
+      "topic": "Electricity",
+      "items": ["Current", "Voltage", "Resistance", "Power"],
+      "answers": [
+        "Current - flow of charge.",
+        "Voltage - potential difference.",
+        "Resistance - opposition to current.",
+        "Power - rate of energy transfer."
+      ]
+    },
+    {
+      "subject": "Physics",
+      "topic": "Wave properties",
+      "items": ["Amplitude", "Frequency", "Wavelength", "Period"],
+      "answers": [
+        "Amplitude - wave height.",
+        "Frequency - number of waves each second.",
+        "Wavelength - length of one full wave.",
+        "Period - time for one full wave."
+      ]
+    },
+
+    {
+      "subject": "English",
+      "topic": "Word classes",
+      "items": ["Noun", "Verb", "Adjective", "Adverb"],
+      "answers": [
+        "Noun - names a person, place, thing, or idea.",
+        "Verb - action or state word.",
+        "Adjective - describes a noun.",
+        "Adverb - modifies a verb, adjective, or other adverb."
+      ]
+    },
+    {
+      "subject": "English",
+      "topic": "Punctuation",
+      "items": ["Full stop", "Comma", "Question mark", "Colon"],
+      "answers": [
+        "Full stop - usually ends a statement.",
+        "Comma - separates parts within a sentence.",
+        "Question mark - ends a direct question.",
+        "Colon - introduces explanation, list, or elaboration."
+      ]
+    },
+    {
+      "subject": "English",
+      "topic": "Text types",
+      "items": ["Narrative", "Report", "Poem", "Speech"],
+      "answers": [
+        "Narrative - tells a story.",
+        "Report - presents factual information.",
+        "Poem - uses patterned or expressive language.",
+        "Speech - written to be spoken aloud."
+      ]
+    },
+    {
+      "subject": "English",
+      "topic": "Figurative language",
+      "items": ["Metaphor", "Simile", "Alliteration", "Personification"],
+      "answers": [
+        "Metaphor - direct comparison.",
+        "Simile - comparison using like or as.",
+        "Alliteration - repeated initial sounds.",
+        "Personification - gives human qualities to non-human things."
+      ]
+    },
+    {
+      "subject": "English",
+      "topic": "Story elements",
+      "items": ["Character", "Setting", "Plot", "Theme"],
+      "answers": [
+        "Character - who is in the story.",
+        "Setting - where and when it happens.",
+        "Plot - sequence of events.",
+        "Theme - central idea or message."
+      ]
+    },
+
+    {
+      "subject": "History",
+      "topic": "Historical sources",
+      "items": ["Diary", "Photograph", "Letter", "Newspaper"],
+      "answers": [
+        "Diary - private day-by-day personal record.",
+        "Photograph - visual source.",
+        "Letter - direct communication between people.",
+        "Newspaper - published public record."
+      ]
+    },
+    {
+      "subject": "History",
+      "topic": "Historical concepts",
+      "items": ["Cause", "Consequence", "Change", "Continuity"],
+      "answers": [
+        "Cause - why something happened.",
+        "Consequence - what happened because of it.",
+        "Change - what became different over time.",
+        "Continuity - what stayed the same."
+      ]
+    },
+    {
+      "subject": "History",
+      "topic": "Time labels",
+      "items": ["BC", "AD", "BCE", "CE"],
+      "answers": [
+        "BC - before Christ.",
+        "AD - anno Domini.",
+        "BCE - before Common Era.",
+        "CE - Common Era."
+      ]
+    },
+
+    {
+      "subject": "Geography",
+      "topic": "Landforms",
+      "items": ["Mountain", "River", "Desert", "Volcano"],
+      "answers": [
+        "Mountain - mainly defined by elevation.",
+        "River - flowing water feature.",
+        "Desert - mainly defined by very low rainfall.",
+        "Volcano - formed by volcanic activity."
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Map skills",
+      "items": ["Scale", "Compass", "Key", "Grid reference"],
+      "answers": [
+        "Scale - compares map distance to real distance.",
+        "Compass - shows direction.",
+        "Key - explains symbols.",
+        "Grid reference - locates position."
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Weather elements",
+      "items": ["Rainfall", "Temperature", "Wind", "Humidity"],
+      "answers": [
+        "Rainfall - precipitation.",
+        "Temperature - measure of heat.",
+        "Wind - movement of air.",
+        "Humidity - amount of water vapour in air."
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Water systems",
+      "items": ["River", "Lake", "Ocean", "Wetland"],
+      "answers": [
+        "River - flowing inland water.",
+        "Lake - enclosed inland water body.",
+        "Ocean - vast saltwater body.",
+        "Wetland - waterlogged ecosystem."
+      ]
+    },
+
+    {
+      "subject": "Economics",
+      "topic": "Basic concepts",
+      "items": ["Needs", "Wants", "Scarcity", "Choice"],
+      "answers": [
+        "Needs - essentials.",
+        "Wants - desired but non-essential things.",
+        "Scarcity - limited resources.",
+        "Choice - decision made because of scarcity."
+      ]
+    },
+    {
+      "subject": "Economics",
+      "topic": "Business terms",
+      "items": ["Cost", "Revenue", "Profit", "Loss"],
+      "answers": [
+        "Cost - money spent.",
+        "Revenue - money earned from sales before costs.",
+        "Profit - money left after costs.",
+        "Loss - negative result when costs exceed revenue."
+      ]
+    },
+    {
+      "subject": "Economics",
+      "topic": "Market ideas",
+      "items": ["Supply", "Demand", "Price", "Competition"],
+      "answers": [
+        "Supply - what producers offer.",
+        "Demand - what consumers want.",
+        "Price - value in money.",
+        "Competition - rivalry affecting market behaviour."
+      ]
+    },
+
+    {
+      "subject": "Art",
+      "topic": "Elements of art",
+      "items": ["Line", "Colour", "Texture", "Shape"],
+      "answers": [
+        "Line - mark or path.",
+        "Colour - hue and tone.",
+        "Texture - surface quality.",
+        "Shape - enclosed 2D form."
+      ]
+    },
+    {
+      "subject": "Art",
+      "topic": "Processes",
+      "items": ["Sketching", "Painting", "Sculpting", "Printing"],
+      "answers": [
+        "Sketching - often planning or drawing stage.",
+        "Painting - uses liquid pigment.",
+        "Sculpting - creates 3D form.",
+        "Printing - transfers an image from one surface to another."
+      ]
+    },
+    {
+      "subject": "Art",
+      "topic": "Design principles",
+      "items": ["Balance", "Contrast", "Pattern", "Emphasis"],
+      "answers": [
+        "Balance - visual stability.",
+        "Contrast - strong difference.",
+        "Pattern - repetition.",
+        "Emphasis - focal point."
+      ]
+    },
+
+    {
+      "subject": "Music",
+      "topic": "Elements of music",
+      "items": ["Rhythm", "Melody", "Harmony", "Tempo"],
+      "answers": [
+        "Rhythm - pattern of beats.",
+        "Melody - tune.",
+        "Harmony - notes sounding together.",
+        "Tempo - speed of the music."
+      ]
+    },
+    {
+      "subject": "Music",
+      "topic": "Instrument families",
+      "items": ["Guitar", "Violin", "Drum", "Flute"],
+      "answers": [
+        "Guitar - plucked string instrument.",
+        "Violin - bowed string instrument.",
+        "Drum - percussion instrument.",
+        "Flute - woodwind instrument."
+      ]
+    },
+
+    {
+      "subject": "Physical Education",
+      "topic": "Fitness components",
+      "items": ["Strength", "Speed", "Flexibility", "Endurance"],
+      "answers": [
+        "Strength - force production.",
+        "Speed - quickness of movement.",
+        "Flexibility - range of motion.",
+        "Endurance - ability to sustain effort."
+      ]
+    },
+    {
+      "subject": "Physical Education",
+      "topic": "Movement skills",
+      "items": ["Run", "Jump", "Throw", "Catch"],
+      "answers": [
+        "Run - locomotor skill.",
+        "Jump - explosive locomotor skill.",
+        "Throw - object-control skill sending away.",
+        "Catch - object-control skill receiving."
+      ]
+    },
+
+    {
+      "subject": "Health",
+      "topic": "Wellbeing",
+      "items": ["Physical", "Mental", "Social", "Emotional"],
+      "answers": [
+        "Physical - body wellbeing.",
+        "Mental - thinking wellbeing.",
+        "Social - relationship wellbeing.",
+        "Emotional - feeling wellbeing."
+      ]
+    },
+    {
+      "subject": "Health",
+      "topic": "Healthy habits",
+      "items": ["Nutrition", "Sleep", "Exercise", "Hydration"],
+      "answers": [
+        "Nutrition - food intake.",
+        "Sleep - recovery and rest.",
+        "Exercise - physical activity.",
+        "Hydration - fluid intake."
+      ]
+    },
+
+    {
+      "subject": "Digital Technology",
+      "topic": "Hardware",
+      "items": ["Keyboard", "Monitor", "Mouse", "Printer"],
+      "answers": [
+        "Keyboard - text input device.",
+        "Monitor - visual output device.",
+        "Mouse - pointing input device.",
+        "Printer - physical output device."
+      ]
+    },
+    {
+      "subject": "Digital Technology",
+      "topic": "Programming concepts",
+      "items": ["Loop", "Variable", "Condition", "Function"],
+      "answers": [
+        "Loop - repetition.",
+        "Variable - stores changing data.",
+        "Condition - true/false check.",
+        "Function - reusable block of code."
+      ]
+    },
+    {
+      "subject": "Digital Technology",
+      "topic": "Web files",
+      "items": [".html", ".css", ".js", ".json"],
+      "answers": [
+        ".html - structure.",
+        ".css - style.",
+        ".js - behaviour.",
+        ".json - data."
+      ]
+    },
+    {
+      "subject": "Digital Technology",
+      "topic": "Networks",
+      "items": ["Router", "Server", "Client", "Switch"],
+      "answers": [
+        "Router - directs traffic between networks.",
+        "Server - provides services.",
+        "Client - requests services.",
+        "Switch - connects devices within a network."
       ]
     }
   ]
