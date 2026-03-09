@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Which One Doesn’t Belong?</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #1e293b;
+      --panel-2: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-2: #22c55e;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 980px;
+      background: rgba(30, 41, 59, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .topbar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .title-wrap h1 {
+      margin: 0 0 6px 0;
+      font-size: 2rem;
+    }
+
+    .title-wrap p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .category {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.18);
+      color: #fde68a;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .question {
+      margin: 18px 0 24px;
+      font-size: 1.2rem;
+      color: #f8fafc;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .item {
+      background: var(--panel-2);
+      border: 2px solid transparent;
+      border-radius: 16px;
+      padding: 28px 18px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 158, 11, 0.55);
+      background: #3d4d63;
+    }
+
+    .item.selected {
+      border-color: var(--accent);
+      background: #475569;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+    }
+
+    .btn-secondary {
+      background: var(--accent-2);
+      color: #052e16;
+    }
+
+    .btn-neutral {
+      background: #475569;
+      color: white;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .answer-panel {
+      display: none;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 8px;
+    }
+
+    .answer-panel.show {
+      display: block;
+    }
+
+    .answer-panel h2 {
+      margin: 0 0 12px 0;
+      font-size: 1.15rem;
+    }
+
+    .answer-panel ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .answer-panel li + li {
+      margin-top: 8px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      .items {
+        grid-template-columns: 1fr;
+      }
+
+      .item {
+        min-height: 90px;
+        font-size: 1.25rem;
+      }
+
+      .title-wrap h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="topbar">
+      <div class="title-wrap">
+        <h1>Which One Doesn’t Belong?</h1>
+        <p>Choose one and justify your thinking.</p>
+      </div>
+      <div id="category" class="category">Loading…</div>
+    </div>
+
+    <div class="question">
+      Which one doesn’t belong? There may be more than one good answer.
+    </div>
+
+    <section id="items" class="items"></section>
+
+    <div class="controls">
+      <button id="revealBtn" class="btn-primary">Reveal possible answers</button>
+      <button id="nextBtn" class="btn-secondary">Next puzzle</button>
+      <button id="randomReasonBtn" class="btn-neutral">Show one random reason</button>
+      <button id="clearBtn" class="btn-danger">Clear selection</button>
+    </div>
+
+    <section id="answerPanel" class="answer-panel">
+      <h2>Possible justifications</h2>
+      <div id="answers"></div>
+    </section>
+
+    <div class="footer-note">
+      Tip: students do not need to match the revealed answers exactly. Good reasoning matters more.
+    </div>
+  </main>
+
+  <script>
+    let puzzles = [];
+    let currentPuzzle = null;
+    let currentIndex = -1;
+    let usedIndexes = [];
+    let selectedItemIndex = null;
+
+    const categoryEl = document.getElementById("category");
+    const itemsEl = document.getElementById("items");
+    const answerPanelEl = document.getElementById("answerPanel");
+    const answersEl = document.getElementById("answers");
+    const revealBtn = document.getElementById("revealBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const randomReasonBtn = document.getElementById("randomReasonBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    async function loadPuzzles() {
+      try {
+        const res = await fetch("./puzzles.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("Could not load puzzles.json");
+        const data = await res.json();
+
+        if (!data.puzzles || !Array.isArray(data.puzzles) || data.puzzles.length === 0) {
+          throw new Error("puzzles.json has no valid puzzles array");
+        }
+
+        puzzles = data.puzzles.filter(isValidPuzzle);
+
+        if (puzzles.length === 0) {
+          throw new Error("No valid puzzles found");
+        }
+
+        showRandomPuzzle();
+      } catch (err) {
+        categoryEl.textContent = "Error";
+        itemsEl.innerHTML = `
+          <div style="grid-column: 1 / -1; background:#7f1d1d; padding:16px; border-radius:12px;">
+            Failed to load puzzles.<br>${escapeHtml(err.message)}
+          </div>
+        `;
+      }
+    }
+
+    function isValidPuzzle(p) {
+      return p
+        && typeof p.category === "string"
+        && Array.isArray(p.items)
+        && p.items.length === 4
+        && p.items.every(item => typeof item === "string")
+        && Array.isArray(p.answers)
+        && p.answers.length > 0
+        && p.answers.every(a => typeof a === "string");
+    }
+
+    function getUnusedIndex() {
+      if (usedIndexes.length >= puzzles.length) {
+        usedIndexes = [];
+      }
+
+      let index;
+      do {
+        index = Math.floor(Math.random() * puzzles.length);
+      } while (usedIndexes.includes(index) && usedIndexes.length < puzzles.length);
+
+      usedIndexes.push(index);
+      return index;
+    }
+
+    function showRandomPuzzle() {
+      currentIndex = getUnusedIndex();
+      currentPuzzle = puzzles[currentIndex];
+      selectedItemIndex = null;
+
+      categoryEl.textContent = currentPuzzle.category;
+      answerPanelEl.classList.remove("show");
+      answersEl.innerHTML = "";
+
+      renderItems(currentPuzzle.items);
+    }
+
+    function renderItems(items) {
+      itemsEl.innerHTML = "";
+
+      items.forEach((text, index) => {
+        const card = document.createElement("button");
+        card.className = "item";
+        card.type = "button";
+        card.textContent = text;
+        card.setAttribute("aria-pressed", "false");
+
+        card.addEventListener("click", () => {
+          selectedItemIndex = index;
+          updateSelection();
+        });
+
+        itemsEl.appendChild(card);
+      });
+    }
+
+    function updateSelection() {
+      const cards = itemsEl.querySelectorAll(".item");
+      cards.forEach((card, index) => {
+        const isSelected = index === selectedItemIndex;
+        card.classList.toggle("selected", isSelected);
+        card.setAttribute("aria-pressed", String(isSelected));
+      });
+    }
+
+    function clearSelection() {
+      selectedItemIndex = null;
+      updateSelection();
+    }
+
+    function revealAllAnswers() {
+      if (!currentPuzzle) return;
+
+      const list = document.createElement("ul");
+      currentPuzzle.answers.forEach(answer => {
+        const li = document.createElement("li");
+        li.textContent = answer;
+        list.appendChild(li);
+      });
+
+      answersEl.innerHTML = "";
+      answersEl.appendChild(list);
+      answerPanelEl.classList.add("show");
+    }
+
+    function revealOneRandomReason() {
+      if (!currentPuzzle) return;
+
+      const random = currentPuzzle.answers[Math.floor(Math.random() * currentPuzzle.answers.length)];
+
+      answersEl.innerHTML = `<p>${escapeHtml(random)}</p>`;
+      answerPanelEl.classList.add("show");
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    revealBtn.addEventListener("click", revealAllAnswers);
+    nextBtn.addEventListener("click", showRandomPuzzle);
+    randomReasonBtn.addEventListener("click", revealOneRandomReason);
+    clearBtn.addEventListener("click", clearSelection);
+
+    loadPuzzles();
+  </script>
+</body>
+</html>
