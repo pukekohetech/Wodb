@@ -16,9 +16,7 @@
       --danger: #ef4444;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -46,7 +44,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       margin-bottom: 18px;
     }
@@ -61,7 +59,14 @@
       color: var(--muted);
     }
 
-    .category {
+    .meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill {
       display: inline-block;
       padding: 8px 12px;
       border-radius: 999px;
@@ -69,6 +74,31 @@
       color: #fde68a;
       font-weight: bold;
       font-size: 0.95rem;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: #0f172a;
+      color: var(--text);
+      font-size: 1rem;
     }
 
     .question {
@@ -188,8 +218,17 @@
       font-size: 0.95rem;
     }
 
+    .status {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
     @media (max-width: 700px) {
       .items {
+        grid-template-columns: 1fr;
+      }
+
+      .filters {
         grid-template-columns: 1fr;
       }
 
@@ -211,8 +250,29 @@
         <h1>Which One Doesn’t Belong?</h1>
         <p>Choose one and justify your thinking.</p>
       </div>
-      <div id="category" class="category">Loading…</div>
+      <div class="meta">
+        <div id="subjectPill" class="pill">Subject</div>
+        <div id="topicPill" class="pill">Topic</div>
+      </div>
     </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label for="subjectSelect">Subject</label>
+        <select id="subjectSelect">
+          <option value="__all__">All subjects</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="topicSelect">Topic</label>
+        <select id="topicSelect">
+          <option value="__all__">All topics</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="status" class="status">Loading puzzles…</div>
 
     <div class="question">
       Which one doesn’t belong? There may be more than one good answer.
@@ -233,18 +293,24 @@
     </section>
 
     <div class="footer-note">
-      Tip: students do not need to match the revealed answers exactly. Good reasoning matters more.
+      Good reasoning matters more than matching the revealed answers exactly.
     </div>
   </main>
 
   <script>
-    let puzzles = [];
-    let currentPuzzle = null;
-    let currentIndex = -1;
-    let usedIndexes = [];
-    let selectedItemIndex = null;
+    const ALL_VALUE = "__all__";
 
-    const categoryEl = document.getElementById("category");
+    let puzzles = [];
+    let filteredPuzzles = [];
+    let currentPuzzle = null;
+    let selectedItemIndex = null;
+    let usedFilteredIndexes = [];
+
+    const subjectSelect = document.getElementById("subjectSelect");
+    const topicSelect = document.getElementById("topicSelect");
+    const subjectPill = document.getElementById("subjectPill");
+    const topicPill = document.getElementById("topicPill");
+    const statusEl = document.getElementById("status");
     const itemsEl = document.getElementById("items");
     const answerPanelEl = document.getElementById("answerPanel");
     const answersEl = document.getElementById("answers");
@@ -257,10 +323,10 @@
       try {
         const res = await fetch("./puzzles.json", { cache: "no-store" });
         if (!res.ok) throw new Error("Could not load puzzles.json");
-        const data = await res.json();
 
-        if (!data.puzzles || !Array.isArray(data.puzzles) || data.puzzles.length === 0) {
-          throw new Error("puzzles.json has no valid puzzles array");
+        const data = await res.json();
+        if (!data.puzzles || !Array.isArray(data.puzzles)) {
+          throw new Error("puzzles.json must contain a puzzles array");
         }
 
         puzzles = data.puzzles.filter(isValidPuzzle);
@@ -269,12 +335,14 @@
           throw new Error("No valid puzzles found");
         }
 
-        showRandomPuzzle();
+        populateSubjectDropdown();
+        updateTopicDropdown();
+        applyFiltersAndShowPuzzle();
       } catch (err) {
-        categoryEl.textContent = "Error";
+        statusEl.textContent = "Failed to load puzzles.";
         itemsEl.innerHTML = `
           <div style="grid-column: 1 / -1; background:#7f1d1d; padding:16px; border-radius:12px;">
-            Failed to load puzzles.<br>${escapeHtml(err.message)}
+            ${escapeHtml(err.message)}
           </div>
         `;
       }
@@ -282,35 +350,117 @@
 
     function isValidPuzzle(p) {
       return p
-        && typeof p.category === "string"
+        && typeof p.subject === "string"
+        && typeof p.topic === "string"
         && Array.isArray(p.items)
         && p.items.length === 4
         && p.items.every(item => typeof item === "string")
         && Array.isArray(p.answers)
         && p.answers.length > 0
-        && p.answers.every(a => typeof a === "string");
+        && p.answers.every(answer => typeof answer === "string");
     }
 
-    function getUnusedIndex() {
-      if (usedIndexes.length >= puzzles.length) {
-        usedIndexes = [];
+    function populateSubjectDropdown() {
+      const subjects = [...new Set(puzzles.map(p => p.subject))].sort((a, b) => a.localeCompare(b));
+
+      subjectSelect.innerHTML = `<option value="${ALL_VALUE}">All subjects</option>`;
+      subjects.forEach(subject => {
+        const opt = document.createElement("option");
+        opt.value = subject;
+        opt.textContent = subject;
+        subjectSelect.appendChild(opt);
+      });
+    }
+
+    function updateTopicDropdown() {
+      const selectedSubject = subjectSelect.value;
+
+      const topicSource = selectedSubject === ALL_VALUE
+        ? puzzles
+        : puzzles.filter(p => p.subject === selectedSubject);
+
+      const topics = [...new Set(topicSource.map(p => p.topic))].sort((a, b) => a.localeCompare(b));
+      const previousValue = topicSelect.value;
+
+      topicSelect.innerHTML = `<option value="${ALL_VALUE}">All topics</option>`;
+      topics.forEach(topic => {
+        const opt = document.createElement("option");
+        opt.value = topic;
+        opt.textContent = topic;
+        topicSelect.appendChild(opt);
+      });
+
+      if (topics.includes(previousValue)) {
+        topicSelect.value = previousValue;
+      } else {
+        topicSelect.value = ALL_VALUE;
+      }
+    }
+
+    function getFilteredPuzzles() {
+      const selectedSubject = subjectSelect.value;
+      const selectedTopic = topicSelect.value;
+
+      return puzzles.filter(puzzle => {
+        const subjectOk = selectedSubject === ALL_VALUE || puzzle.subject === selectedSubject;
+        const topicOk = selectedTopic === ALL_VALUE || puzzle.topic === selectedTopic;
+        return subjectOk && topicOk;
+      });
+    }
+
+    function applyFiltersAndShowPuzzle() {
+      filteredPuzzles = getFilteredPuzzles();
+      usedFilteredIndexes = [];
+      answerPanelEl.classList.remove("show");
+      answersEl.innerHTML = "";
+      selectedItemIndex = null;
+
+      updateMeta();
+
+      if (filteredPuzzles.length === 0) {
+        currentPuzzle = null;
+        statusEl.textContent = "No puzzles match these filters.";
+        itemsEl.innerHTML = "";
+        return;
+      }
+
+      statusEl.textContent = `${filteredPuzzles.length} puzzle${filteredPuzzles.length === 1 ? "" : "s"} available`;
+      showRandomPuzzle();
+    }
+
+    function updateMeta() {
+      subjectPill.textContent = subjectSelect.value === ALL_VALUE ? "All subjects" : subjectSelect.value;
+      topicPill.textContent = topicSelect.value === ALL_VALUE ? "All topics" : topicSelect.value;
+    }
+
+    function getUnusedFilteredIndex() {
+      if (filteredPuzzles.length === 0) return -1;
+
+      if (usedFilteredIndexes.length >= filteredPuzzles.length) {
+        usedFilteredIndexes = [];
       }
 
       let index;
       do {
-        index = Math.floor(Math.random() * puzzles.length);
-      } while (usedIndexes.includes(index) && usedIndexes.length < puzzles.length);
+        index = Math.floor(Math.random() * filteredPuzzles.length);
+      } while (
+        usedFilteredIndexes.includes(index) &&
+        usedFilteredIndexes.length < filteredPuzzles.length
+      );
 
-      usedIndexes.push(index);
+      usedFilteredIndexes.push(index);
       return index;
     }
 
     function showRandomPuzzle() {
-      currentIndex = getUnusedIndex();
-      currentPuzzle = puzzles[currentIndex];
+      if (filteredPuzzles.length === 0) return;
+
+      const index = getUnusedFilteredIndex();
+      currentPuzzle = filteredPuzzles[index];
       selectedItemIndex = null;
 
-      categoryEl.textContent = currentPuzzle.category;
+      subjectPill.textContent = currentPuzzle.subject;
+      topicPill.textContent = currentPuzzle.topic;
       answerPanelEl.classList.remove("show");
       answersEl.innerHTML = "";
 
@@ -369,7 +519,6 @@
       if (!currentPuzzle) return;
 
       const random = currentPuzzle.answers[Math.floor(Math.random() * currentPuzzle.answers.length)];
-
       answersEl.innerHTML = `<p>${escapeHtml(random)}</p>`;
       answerPanelEl.classList.add("show");
     }
@@ -382,6 +531,15 @@
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
     }
+
+    subjectSelect.addEventListener("change", () => {
+      updateTopicDropdown();
+      applyFiltersAndShowPuzzle();
+    });
+
+    topicSelect.addEventListener("change", () => {
+      applyFiltersAndShowPuzzle();
+    });
 
     revealBtn.addEventListener("click", revealAllAnswers);
     nextBtn.addEventListener("click", showRandomPuzzle);
