@@ -1,0 +1,107 @@
+{
+  "puzzles": [
+    {
+      "category": "Materials",
+      "items": ["Plywood", "MDF", "Pine", "Aluminium"],
+      "answers": [
+        "Aluminium does not belong because it is the only metal.",
+        "Pine does not belong because it is the only natural solid timber.",
+        "MDF does not belong because it is made from wood fibres.",
+        "Plywood does not belong because it is made from layered veneers."
+      ]
+    },
+    {
+      "category": "Workshop tools",
+      "items": ["Chisel", "Hammer", "Saw", "Sandpaper"],
+      "answers": [
+        "Sandpaper does not belong because it is an abrasive rather than a cutting or striking tool.",
+        "Hammer does not belong because it does not cut material.",
+        "Saw does not belong because it removes material by teeth rather than impact or abrasion."
+      ]
+    },
+    {
+      "category": "Joining",
+      "items": ["Dowel", "Mortise and tenon", "Biscuit", "Rivet"],
+      "answers": [
+        "Rivet does not belong because it is a metal fastening method.",
+        "Mortise and tenon does not belong because it is a traditional formed joint rather than a loose inserted connector.",
+        "Biscuit does not belong because it usually relies on swelling compressed beech."
+      ]
+    },
+    {
+      "category": "Drawing terms",
+      "items": ["Plan", "Elevation", "Isometric", "Recipe"],
+      "answers": [
+        "Recipe does not belong because it is not a drawing or drawing view.",
+        "Isometric does not belong because it is a pictorial view, while plan and elevation are orthographic views."
+      ]
+    },
+    {
+      "category": "Manufacturing",
+      "items": ["Marking out", "Cutting", "Joining", "Photosynthesis"],
+      "answers": [
+        "Photosynthesis does not belong because it is not part of a manufacturing process.",
+        "Joining does not belong because it usually happens after shaping steps like marking out and cutting."
+      ]
+    },
+    {
+      "category": "Fasteners",
+      "items": ["Screw", "Bolt", "Nail", "Glue"],
+      "answers": [
+        "Glue does not belong because it is an adhesive rather than a mechanical fastener.",
+        "Bolt does not belong because it is usually used with a nut.",
+        "Nail does not belong because it has no thread."
+      ]
+    },
+    {
+      "category": "Safety",
+      "items": ["Safety glasses", "Ear muffs", "Apron", "Jandal"],
+      "answers": [
+        "Jandal does not belong because it is not suitable workshop footwear.",
+        "Apron does not belong because it is not always required PPE in the same way eye and hearing protection can be."
+      ]
+    },
+    {
+      "category": "Metals",
+      "items": ["Steel", "Aluminium", "Copper", "Plywood"],
+      "answers": [
+        "Plywood does not belong because it is not a metal.",
+        "Aluminium does not belong because it is much lighter than the others.",
+        "Copper does not belong because it is commonly used for electrical conductivity."
+      ]
+    },
+    {
+      "category": "Measuring",
+      "items": ["Steel rule", "Tape measure", "Try square", "Hot glue gun"],
+      "answers": [
+        "Hot glue gun does not belong because it is not a measuring or checking tool.",
+        "Try square does not belong because it is mainly for checking 90 degrees rather than measuring length."
+      ]
+    },
+    {
+      "category": "Timber",
+      "items": ["Rimu", "Pine", "MDF", "Macrocarpa"],
+      "answers": [
+        "MDF does not belong because it is an engineered board, not solid timber.",
+        "Rimu does not belong because it is a native timber.",
+        "Pine does not belong because it is usually plantation-grown and softer than many other timbers."
+      ]
+    },
+    {
+      "category": "Processes",
+      "items": ["Casting", "Moulding", "Laminating", "Sleeping"],
+      "answers": [
+        "Sleeping does not belong because it is not a manufacturing process.",
+        "Laminating does not belong because it joins layers rather than forming liquid or softened material in a mould."
+      ]
+    },
+    {
+      "category": "Mechanisms",
+      "items": ["Gear", "Pulley", "Lever", "Wallpaper"],
+      "answers": [
+        "Wallpaper does not belong because it is not a mechanism.",
+        "Lever does not belong because it is a simple machine that does not rely on rotational transmission like gears and pulleys."
+      ]
+    }
+  ]
+}
